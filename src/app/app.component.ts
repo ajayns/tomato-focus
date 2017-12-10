@@ -42,7 +42,7 @@ export class AppComponent {
    
   timer = () => {
       setTimeout(() => {
-        if(this.time > 0 && !this.pause) { 
+        if (this.time > 0 && !this.pause) { 
           this.time -= 1;
           this.timer();
         }
@@ -50,12 +50,12 @@ export class AppComponent {
           this.timerActive = false;
           if (this.focus && !this.pause) {
             this.count++;
-            if(this.count == 7)
+            if (this.count % 7 == 0)
               this.setTimer(15, true);
-            else if (this.count % 2) 
-              this.setTimer(5, true);
+            else if (this.count % 2 == 0) 
+              this.setTimer(25, true);
             else
-              this.setTimer(25, true);            
+              this.setTimer(5, true);            
           }
         }
       }, 1000);
