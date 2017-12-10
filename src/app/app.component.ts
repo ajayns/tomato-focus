@@ -7,13 +7,25 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  counter:number;
+  time:number;
+  count:number;
+
+  focus:boolean = false;
   pause:boolean = false;
   timerActive:boolean = false;
 
-  setTimer = (time:number) => {
-    this.counter = time;
+  setTimer = (time:number,focus:boolean = false) => {
+    if(!focus) {
+      this.focus = false;
+    }
+    this.time = time;
     this.startTimer();
+  }
+
+  startFocus = () => {
+    this.focus = true;
+    this.count = 0;
+    this.setTimer(25,true);
   }
 
   togglePause = () => {
@@ -30,12 +42,22 @@ export class AppComponent {
    
   timer = () => {
       setTimeout(() => {
-        if(this.counter > 0 && this.pause == false) { 
-          this.counter -= 1;
+        if(this.time > 0 && !this.pause) { 
+          this.time -= 1;
           this.timer();
         }
-        else
+        else {
           this.timerActive = false;
+          if (this.focus && !this.pause) {
+            this.count++;
+            if(this.count == 7)
+              this.setTimer(15, true);
+            else if (this.count % 2) 
+              this.setTimer(5, true);
+            else
+              this.setTimer(25, true);            
+          }
+        }
       }, 1000);
   }
 }
