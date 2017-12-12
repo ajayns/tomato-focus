@@ -1,39 +1,39 @@
 <title>{{ time | minuteSeconds }} | Tomato Focus</title>
 
+<div class="bg"></div>
+
+<nav>
+  <h1>TomatoFocus</h1>
+
+  <ul>
+    <li><i class="fa fa-github"></i></li>
+    <li><i class="fa fa-twitter"></i></li>
+    <li><i class="fa fa-medium"></i></li>
+  </ul>
+
+</nav>
+
 
 <div>
-    <h1>TomatoFocus</h1>
+  <div>Current</div>
+  <div>
     <div>
-        <ul>
-            <li>Github</li>
-            <li>Twitter</li>
-            <li>Medium</li>
-        </ul>
+      {{ time | minuteSeconds }}
     </div>
+    <div>
+      <button (click)="togglePause()">Start/Stop</button>
+    </div>
+  </div>
+  <div>
+    Count
+  </div>
+  <div>
+    Reset
+  </div>
 </div>
 
 <div>
-    <div>Current</div>
-    <div>
-        <div>
-            {{ time | minuteSeconds }}
-        </div>
-        <div>
-            <button (click)="togglePause()">Start/Stop</button>
-        </div>
-    </div>
-    <div>
-        Count
-    </div>
-    <div>
-        Reset
-    </div>
+  <button (click)="setTimer(5)">Short Break</button>
+  <button (click)="setTimer(15)">Long Break</button>
+  <button (click)="startFocus()">Focus</button>
 </div>
-
-<div>
-    <button (click)="setTimer(5)">Short Break</button>
-    <button (click)="setTimer(15)">Long Break</button>
-    <button (click)="startFocus()">Focus</button>
-</div>
-
-
