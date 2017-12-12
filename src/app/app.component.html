@@ -1,6 +1,6 @@
-<title>{{ time }} | Tomato Focus</title>
+<title>{{ time | minuteSeconds }} | Tomato Focus</title>
 
-{{ time }}
+{{ time | minuteSeconds }}
 
 <button (click)="setTimer(5)">Short Break</button>
 <button (click)="setTimer(15)">Long Break</button>

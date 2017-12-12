@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MinuteSecondsPipe } from './minute-seconds.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MinuteSecondsPipe
   ],
   imports: [
     BrowserModule

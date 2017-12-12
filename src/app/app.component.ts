@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  time:number;
+  time:number = 0;
   count:number;
 
   focus:boolean = false;
