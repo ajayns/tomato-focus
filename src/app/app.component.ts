@@ -15,9 +15,7 @@ export class AppComponent {
   timerActive:boolean = false;
 
   setTimer = (time:number,focus:boolean = false) => {
-    if(!focus) {
-      this.focus = false;
-    }
+    this.focus = focus;
     this.time = time;
     this.startTimer();
   }
