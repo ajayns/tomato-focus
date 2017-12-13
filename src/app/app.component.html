@@ -1,39 +1,56 @@
 <title>{{ time | minuteSeconds }} | Tomato Focus</title>
 
-<div class="bg"></div>
+
+
+<div class="bg">
+</div>
 
 <nav>
   <h1>TomatoFocus</h1>
 
-  <ul>
-    <li><i class="fa fa-github"></i></li>
-    <li><i class="fa fa-twitter"></i></li>
-    <li><i class="fa fa-medium"></i></li>
-  </ul>
+  <div class="social-icons">
+    <ul>
+      <li>
+        <i class="fa fa-github"></i>
+      </li>
+      <li>
+        <i class="fa fa-twitter"></i>
+      </li>
+      <li>
+        <i class="fa fa-medium"></i>
+      </li>
+    </ul>
+
+  </div>
+
 
 </nav>
 
+<div class="container">
+  <div class="current-state">Current State</div>
+  <div class="timer">
+    <div class="time">{{ time | minuteSeconds }}</div>
 
-<div>
-  <div>Current</div>
-  <div>
-    <div>
-      {{ time | minuteSeconds }}
-    </div>
-    <div>
-      <button (click)="togglePause()">Start/Stop</button>
-    </div>
-  </div>
-  <div>
-    Count
-  </div>
-  <div>
-    Reset
-  </div>
-</div>
+    <button (click)="togglePause()">
+      <i class="fa fa-play"></i>
+    </button>
 
-<div>
-  <button (click)="setTimer(5)">Short Break</button>
-  <button (click)="setTimer(15)">Long Break</button>
-  <button (click)="startFocus()">Focus</button>
+  </div>
+  
+  <div class="controls">
+    <ul>
+      <li>
+        <button (click)="setTimer(5)">Short Break</button>
+
+      </li>
+      <li>
+        <button (click)="startFocus(5)">Focus</button>
+
+      </li>
+      <li>
+        <button (click)="setTimer(15)">Long Break</button>
+
+      </li>
+    </ul>
+  </div>
 </div>

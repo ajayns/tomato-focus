@@ -1,44 +1,80 @@
-
 $red: #ff2d55;
-
 @mixin flex($align: left) {
-    display: flex;
-    justify-content: $align;
-    align-items: center;   
+  display: flex;
+  justify-content: $align;
+  align-items: center;
 }
 
 %white-text {
-    color: white;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 .bg {
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: $red;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $red;
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  li {
+    display: inline-block;
+  }
 }
 
 nav {
-    margin: 0 2rem 0 2rem;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    @extend %white-text;       
-
-    h1 {        
-        font-style: italic;
-    }
-    
+  margin: 0 2rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  @extend %white-text;
+  h1 {
+    font-style: italic;
+  }
+  .social-icons {
+    @include flex(right);
     ul {
-        list-style: none;
-        text-align: right;        
-        @include flex(right);
-        li {
-            margin: 0 0.5rem 0 0.5rem;
-            display: inline-block;
-            font-size: x-large;
-        }        
+      li {
+        margin: 0 0.5rem 0 0.5rem;
+        font-size: x-large;
+      }
     }
+  }
+}
+
+.container {
+  text-align: center;
+  margin-top: 2em;
+  @extend %white-text;
+  div {
+    padding: 0.5em 0 0.5em 0;
+  }
+  .timer {
+    .time {
+      font-size: 72px;
+    }
+  }
+  .controls {
+    ul {
+      margin-top: 2em;
+      li {
+        padding-left: 1em;
+      }
+    }
+  }
+}
+
+button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  padding: 0! important;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
 }
