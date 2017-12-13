@@ -1,4 +1,10 @@
+
 $red: #ff2d55;
+
+$small: 480px;
+$med: 768px;
+$large: 1200px;
+
 @mixin flex($align: left) {
   display: flex;
   justify-content: $align;
@@ -29,7 +35,8 @@ ul {
 }
 
 nav {
-  margin: 0 2rem 0 2rem;
+  padding: 0 2rem 0 2rem;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   @extend %white-text;
@@ -48,15 +55,44 @@ nav {
 }
 
 .container {
+  height: 90vh;
   text-align: center;
-  margin-top: 2em;
+
   @extend %white-text;
   div {
     padding: 0.5em 0 0.5em 0;
   }
   .timer {
+    
+
     .time {
+      margin-top: 50px;
       font-size: 72px;
+    }
+
+    .timer-svg {
+      width: 300px;
+      height: 300px;
+      transform: rotateZ(-90deg) rotateX(180deg);
+      display: block;
+      
+      position: fixed;
+      left: 0;
+      right: 0;
+      margin: 0 auto;     
+    
+
+      #svg circle {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 1s linear;
+        stroke: gray;
+        stroke-width: 0.5em;
+      }
+
+      #svg #bar {
+        stroke: white;
+      }
+
     }
   }
   .controls {
@@ -77,4 +113,11 @@ button {
   font: inherit;
   cursor: pointer;
   outline: none;
+}
+
+
+@media screen and (max-width: $small) {
+  .social-icons {
+    display: none !important;
+  }
 }

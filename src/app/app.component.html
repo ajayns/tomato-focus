@@ -29,6 +29,14 @@
 <div class="container">
   <div class="current-state">Current State</div>
   <div class="timer">
+    
+    <div class="timer-svg">
+      <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
+
+        <circle id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.22" stroke-dashoffset="0"></circle>
+      </svg>
+    </div>
+
     <div class="time">{{ time | minuteSeconds }}</div>
 
     <button (click)="togglePause()">
