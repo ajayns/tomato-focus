@@ -14,16 +14,38 @@ export class AppComponent {
   pause:boolean = false;
   timerActive:boolean = false;
 
-  setTimer = (time:number,focus:boolean = false) => {
+  currentState:number = 0;
+  currentStateName:string = 'set timer';
+
+  shortBreakTime:number = 300;
+  longBreakTime:number = 900;
+  focusTime:number = 1500;
+
+  setTimer = (time:number, focus:boolean = false) => {
+    this.currentState = time;
+    if (time == this.shortBreakTime)
+      this.currentStateName = 'short break';
+    else if (time == this.longBreakTime)
+      this.currentStateName = 'long break';
+    else
+      this.currentStateName = 'focus';
+    
     this.focus = focus;
     this.time = time;
     this.startTimer();
   }
 
+  setTimerSvg = (time:number) => {
+    if(time == 0)
+      document.getElementById('bar').style.strokeDashoffset = '0';
+    else
+      document.getElementById('bar').style.strokeDashoffset = (848.23 * (1 - time / this.currentState)).toString();
+  }
+
   startFocus = () => {
     this.focus = true;
     this.count = 0;
-    this.setTimer(25,true);
+    this.setTimer(this.focusTime, true);
   }
 
   togglePause = () => {
@@ -42,6 +64,9 @@ export class AppComponent {
       setTimeout(() => {
         if (this.time > 0 && !this.pause) { 
           this.time -= 1;
+          if(this.time == 0)
+            this.timerActive = false;
+          this.setTimerSvg(this.time);
           this.timer();
         }
         else {
@@ -49,11 +74,11 @@ export class AppComponent {
           if (this.focus && !this.pause) {
             this.count++;
             if (this.count % 7 == 0)
-              this.setTimer(15, true);
+              this.setTimer(this.longBreakTime, true);
             else if (this.count % 2 == 0) 
-              this.setTimer(25, true);
+              this.setTimer(this.focusTime, true);
             else
-              this.setTimer(5, true);            
+              this.setTimer(this.shortBreakTime, true);            
           }
         }
       }, 1000);

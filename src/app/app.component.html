@@ -32,13 +32,12 @@
 </nav>
 
 <div class="container">
-  <div class="current-state">Current State</div>
+  <div class="current-state">{{ currentStateName }}</div>
   <div class="timer">
 
     <div class="timer-svg">
       <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
-
-        <circle id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.22" stroke-dashoffset="0"></circle>
+        <circle id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.23" stroke-dashoffset="0"></circle>
       </svg>
     </div>
 
@@ -53,17 +52,15 @@
   <div class="controls">
     <ul>
       <li>
-        <button (click)="setTimer(5)">Short Break</button>
-
+        <button (click)="setTimer(this.shortBreakTime)">Short Break</button>
       </li>
       <li>
-        <button (click)="startFocus(5)">Focus</button>
-
+        <button (click)="startFocus()">Focus</button>
       </li>
       <li>
-        <button (click)="setTimer(15)">Long Break</button>
-
+        <button (click)="setTimer(this.longBreakTime)">Long Break</button>
       </li>
     </ul>
   </div>
 </div>
+
