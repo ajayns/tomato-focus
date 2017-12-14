@@ -11,7 +11,7 @@ $large: 1200px;
   align-items: center;
 }
 
-%white-text {
+%text-shadow {
   color: white;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
@@ -39,7 +39,7 @@ nav {
   height: 10vh;
   display: flex;
   justify-content: space-between;
-  @extend %white-text;
+  @extend %text-shadow;
   h1 {
     font-style: italic;
   }
@@ -48,7 +48,6 @@ nav {
     ul {
       li {
         margin: 0 0.5rem 0 0.5rem;
-        font-size: x-large;
       }
     }
   }
@@ -57,13 +56,17 @@ nav {
 .container {
   height: 90vh;
   text-align: center;
+  @include flex(center);
+  flex-direction: column;
+  text-transform: uppercase;
+  color: white;
 
-  @extend %white-text;
   div {
     padding: 0.5em 0 0.5em 0;
   }
+
   .timer {
-    
+    height: 320px;
 
     .time {
       margin-top: 50px;
@@ -75,6 +78,7 @@ nav {
       height: 300px;
       transform: rotateZ(-90deg) rotateX(180deg);
       display: block;
+      z-index: -1;
       
       position: fixed;
       left: 0;
@@ -92,17 +96,27 @@ nav {
       #svg #bar {
         stroke: white;
       }
+    }
 
+    button {
+      .fa {
+        font-size: xx-large;
+      }
     }
   }
   .controls {
     ul {
-      margin-top: 2em;
+      @include flex(center);
       li {
-        padding-left: 1em;
+        width: 120px;
       }
     }
   }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit; 
 }
 
 button {
@@ -113,10 +127,18 @@ button {
   font: inherit;
   cursor: pointer;
   outline: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
 }
 
+.fa {
+  font-size: x-large;
+}
 
-@media screen and (max-width: $small) {
+@media screen and (max-width: $med) {
   .social-icons {
     display: none !important;
   }

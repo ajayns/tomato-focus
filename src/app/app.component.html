@@ -11,16 +11,21 @@
   <div class="social-icons">
     <ul>
       <li>
-        <i class="fa fa-github"></i>
+        <a href="http://github.com/ajayns/">
+          <i class="fa fa-github"></i>
+        </a>
       </li>
       <li>
-        <i class="fa fa-twitter"></i>
+        <a href="http://twitter.com/ajayns08">
+          <i class="fa fa-twitter"></i>
+        </a>
       </li>
       <li>
-        <i class="fa fa-medium"></i>
+        <a href="https://medium.com/@ajay.ns08">
+          <i class="fa fa-medium"></i>
+        </a>
       </li>
     </ul>
-
   </div>
 
 
@@ -29,7 +34,7 @@
 <div class="container">
   <div class="current-state">Current State</div>
   <div class="timer">
-    
+
     <div class="timer-svg">
       <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
 
@@ -39,12 +44,12 @@
 
     <div class="time">{{ time | minuteSeconds }}</div>
 
-    <button (click)="togglePause()">
-      <i class="fa fa-play"></i>
+    <button (click)="togglePause()" [disabled]="!time">
+      <i class="fa" [ngClass]="timerActive ? 'fa-pause' : 'fa-play'"></i>
     </button>
 
   </div>
-  
+
   <div class="controls">
     <ul>
       <li>
