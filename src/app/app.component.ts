@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +28,10 @@ export class AppComponent {
       this.currentStateName = 'short break';
     else if (time == this.longBreakTime)
       this.currentStateName = 'long break';
-    else
+    else if (time == this.focusTime)
       this.currentStateName = 'focus';
+    else
+      this.currentStateName = 'set timer';
     
     this.focus = focus;
     this.time = time;

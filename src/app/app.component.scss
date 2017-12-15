@@ -67,6 +67,14 @@ nav {
 
   .timer {
     height: 320px;
+    width: 320px;
+    position: relative;
+
+    .reset-btn {
+      position: absolute;
+      right: 0;
+      bottom: 40px;
+    }
 
     .time {
       margin-top: 50px;
