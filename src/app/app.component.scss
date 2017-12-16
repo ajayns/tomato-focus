@@ -11,6 +11,14 @@ $large: 1020px;
   align-items: center;
 }
 
+@mixin circle($diameter) {
+  background-color: white;
+  color: $red;
+  height: $diameter;
+  width: $diameter;
+  border-radius: $diameter / 2;
+}
+
 %text-shadow {
   color: white;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
@@ -199,12 +207,8 @@ button {
       }
 
       .reset-btn {
-        background: white;
+        @include circle(3em);
         right: auto;
-        height: 3em;
-        width: 3em;
-        border-radius: 1.5em;
-        color: tomato;
         bottom: -20px;
         margin-left: 180px;
       }
@@ -221,10 +225,8 @@ button {
           margin-top: 1em;
 
           button {
-            width: 120px;
-            height: 120px;
-            font-size: 1em;
-            border-radius: 60px;            
+            @include circle(120px);
+            font-size: 1em;          
             padding: 0 1em 0 1em;
           }
 
