@@ -75,9 +75,13 @@ nav {
       right: 0;
       bottom: 40px;
     }
+    
+    .current-state {
+      padding: 0;
+      margin-top: 50px;
+    }
 
     .time {
-      margin-top: 50px;
       font-size: 72px;
     }
 
@@ -98,6 +102,7 @@ nav {
         stroke-dashoffset: 0;
         stroke: gray;
         stroke-width: 0.5em;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
       }
 
       #svg #bar {
@@ -112,10 +117,24 @@ nav {
     }
   }
   .controls {
+    
     ul {
       @include flex(center);
+      margin-top: 1em;
+
       li {
-        width: 120px;
+        width: 150px;
+        button {
+          width: 120px;
+          height: 30px;
+          padding: 0.5em;
+          background-color: white;
+          color: $red;
+          font-size: small;
+          text-transform: uppercase;          
+          border-radius: 15px;
+          box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -127,10 +146,10 @@ a {
 }
 
 button {
-  background: none !important;
+  background: none;
   color: inherit;
   border: none;
-  padding: 0! important;
+  padding: 0;
   font: inherit;
   cursor: pointer;
   outline: none;
@@ -148,5 +167,18 @@ button {
 @media screen and (max-width: $med) {
   .social-icons {
     display: none !important;
+  }
+}
+
+@media screen and (max-width: $small) {
+  .controls {
+    ul {
+      flex-direction: column;
+      margin-top: 0;
+
+      li {
+        margin-top: 1em;
+      }
+    }
   }
 }

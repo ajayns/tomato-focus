@@ -24,6 +24,8 @@ export class AppComponent {
 
   setTimer = (time:number, focus:boolean = false) => {
     this.currentState = time;
+    this.setTimerSvg(time);
+
     if (time == this.shortBreakTime)
       this.currentStateName = 'short break';
     else if (time == this.longBreakTime)

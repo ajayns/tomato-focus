@@ -32,17 +32,16 @@
 </nav>
 
 <div class="container">
-  <div class="current-state">{{ currentStateName }}</div>
+
   <div class="timer">
 
-    
     <div class="timer-svg">
       <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
         <circle id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.23" stroke-dashoffset="0"></circle>
       </svg>
     </div>
 
-    
+    <div class="current-state">{{ currentStateName }}</div>
 
     <div class="time">{{ time | minuteSeconds }}</div>
 
@@ -70,4 +69,3 @@
     </ul>
   </div>
 </div>
-
