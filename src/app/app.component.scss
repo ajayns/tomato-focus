@@ -3,7 +3,7 @@ $red: #ff2d55;
 
 $small: 480px;
 $med: 768px;
-$large: 1200px;
+$large: 1020px;
 
 @mixin flex($align: left) {
   display: flex;
@@ -116,6 +116,7 @@ nav {
       }
     }
   }
+
   .controls {
     
     ul {
@@ -180,5 +181,60 @@ button {
         margin-top: 1em;
       }
     }
+  }
+}
+
+@media screen and (min-width: $large) {
+  .container {
+    flex-direction: row;
+
+    .timer {
+      flex: 6;
+
+      .timer-svg {
+        position: absolute;
+        #svg {
+          transform: scale(1.5)
+        }
+      }
+
+      .reset-btn {
+        background: white;
+        right: auto;
+        height: 3em;
+        width: 3em;
+        border-radius: 1.5em;
+        color: tomato;
+        bottom: -20px;
+        margin-left: 180px;
+      }
+    }
+
+    .controls {
+      flex: 4;
+
+      ul {
+        flex-direction: column;
+        align-items: left;
+
+        li {
+          margin-top: 1em;
+
+          button {
+            width: 120px;
+            height: 120px;
+            font-size: 1em;
+            border-radius: 60px;            
+            padding: 0 1em 0 1em;
+          }
+
+          &:nth-child(odd) {
+            margin-left: 5em;
+          }
+        }
+
+      }
+    }
+
   }
 }
