@@ -1,0 +1,25 @@
+{
+  "name": "TomatoFocus",
+  "short_name": "TomatoFocus",
+  "description": "Just a basic pomodoro timer",
+  "icons": [{
+      "src": "assets/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ff2d55",
+  "theme_color": "#ff2d55"
+}
