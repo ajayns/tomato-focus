@@ -91,6 +91,7 @@ nav {
     .current-state {
       padding: 0;
       margin-top: 50px;
+      font-weight: bold;
     }
 
     .time {
@@ -141,7 +142,8 @@ nav {
           height: 30px;
           padding: 0.5em;
           background-color: white;
-          color: $red;
+          color: tomato;
+          font-weight: bold;
           font-size: small;
           text-transform: uppercase;          
           border-radius: 15px;
