@@ -1,27 +1,49 @@
 # TomatoFocus
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+![Giphy](https://media.giphy.com/media/xT9DgwUXOw4OMBWG9G/giphy.gif)
+![Giphy](https://media.giphy.com/media/xT9DgihbOAXADxLAKk/giphy.gif)
 
-## Development server
+[Live Demo](http://tomato-focus.firebaseapp.com/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The classic Pomodoro timer as a Progressive Web App. Built using Angular 5, leveraging HTML5 svg, SCSS, Service Worker tools.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Cross-browser, cross-platform support
+* Installable web app
+* Offline functionality
+* Sleek, simple UI
+* Lightweight
+* Fully responsive
 
-## Build
+## Development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+It is required that Angular 5 be preinstalled globally. Run these steps to quickly do so
 
-## Running unit tests
+```bash
+npm install -g @angular/cli
+```
+Install all the required packages/dependencies using npm
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install
+```
 
-## Running end-to-end tests
+Serve the app to browser
+```bash
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+For deployment, Firebase static hosting is used.
 
-## Further help
+## Checklist
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [ ] Push notifications
+- [ ] Sound on timeout
+- [ ] Add social icons 3-dot menu on mobile devices
+- [ ] Add more subtle UI animations/transitions
+- [ ] Remove font-awesome dependency
+
+## Contributing
+
+Feel free to open issues and pull requests!
