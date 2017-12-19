@@ -183,13 +183,16 @@ button {
 }
 
 @media screen and (max-width: $small) {
-  .controls {
-    ul {
-      flex-direction: column;
-      margin-top: 0;
-
-      li {
-        margin-top: 1em;
+  .container {
+    .controls {
+      ul {
+        margin-top: 2.5em;
+        li {
+          width: 120px;
+          button{
+            @include circle(90px);
+          }        
+        }
       }
     }
   }
