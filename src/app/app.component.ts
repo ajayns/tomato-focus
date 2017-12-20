@@ -18,9 +18,9 @@ export class AppComponent {
   currentState:number = 0;
   currentStateName:string = 'set timer';
 
-  shortBreakTime:number = 300;
-  longBreakTime:number = 900;
-  focusTime:number = 1500;
+  shortBreakTime:number = 3;
+  longBreakTime:number = 9;
+  focusTime:number = 15;
 
   audio = new Audio();
 
@@ -66,35 +66,39 @@ export class AppComponent {
   }
 
   startTimer = () => {
-    if(!this.timerActive) {
+    if(!this.timerActive || this.currentState == 0) {
       this.timerActive = true;
       this.timer();
     }
   }
    
   timer = () => {
+    console.log('timer');
+    if (this.time > 0 && !this.pause) { 
       setTimeout(() => {
-        if (this.time > 0 && !this.pause) { 
-          this.time -= 1;
-          if(this.time == 0) {
+        console.log('timeout');
+        if(this.time > 0) {
+          if (this.time - 1 == 0) {
             this.timerActive = false;
             this.audio.play();
           }
+          this.time -= 1;          
           this.setTimerSvg(this.time);
           this.timer();
         }
-        else {
-          this.timerActive = false;
-          if (this.focus && !this.pause) {
-            this.count++;
-            if (this.count % 7 == 0)
-              this.setTimer(this.longBreakTime, true);
-            else if (this.count % 2 == 0) 
-              this.setTimer(this.focusTime, true);
-            else
-              this.setTimer(this.shortBreakTime, true);            
-          }
-        }
       }, 1000);
+    } else {
+        this.timerActive = false;
+        if (this.focus && !this.pause) {
+          this.count++;
+        if (this.count % 7 == 0)
+          this.setTimer(this.longBreakTime, true);
+        else if (this.count % 2 == 0) 
+          this.setTimer(this.focusTime, true);
+        else
+          this.setTimer(this.shortBreakTime, true);            
+      }
+    }
+      
   }
 }
