@@ -22,6 +22,13 @@ export class AppComponent {
   longBreakTime:number = 900;
   focusTime:number = 1500;
 
+  audio = new Audio();
+
+  constructor() {
+    this.audio.src = "../assets/beep.mp3";
+    this.audio.load();
+  }
+
   setTimer = (time:number, focus:boolean = false) => {
     this.currentState = time;
     this.setTimerSvg(time);
@@ -69,8 +76,10 @@ export class AppComponent {
       setTimeout(() => {
         if (this.time > 0 && !this.pause) { 
           this.time -= 1;
-          if(this.time == 0)
+          if(this.time == 0) {
             this.timerActive = false;
+            this.audio.play();
+          }
           this.setTimerSvg(this.time);
           this.timer();
         }
