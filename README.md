@@ -39,7 +39,7 @@ For deployment, Firebase static hosting is used.
 ## Checklist
 
 - [ ] Push notifications
-- [ ] Sound on timeout
+- [x] Sound on timeout
 - [ ] Add social icons 3-dot menu on mobile devices
 - [ ] Add more subtle UI animations/transitions
 - [ ] Remove font-awesome dependency
