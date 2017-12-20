@@ -1,6 +1,6 @@
 {
   "name": "tomato-focus",
-  "version": "0.0.0",
+  "version": "0.1.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+	"deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
