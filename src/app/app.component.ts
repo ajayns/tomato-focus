@@ -18,9 +18,9 @@ export class AppComponent {
   currentState:number = 0;
   currentStateName:string = 'set timer';
 
-  shortBreakTime:number = 3;
-  longBreakTime:number = 9;
-  focusTime:number = 15;
+  shortBreakTime:number = 300;
+  longBreakTime:number = 900;
+  focusTime:number = 1500;
 
   audio = new Audio();
 
@@ -73,10 +73,8 @@ export class AppComponent {
   }
    
   timer = () => {
-    console.log('timer');
     if (this.time > 0 && !this.pause) { 
       setTimeout(() => {
-        console.log('timeout');
         if(this.time > 0) {
           if (this.time - 1 == 0) {
             this.timerActive = false;
