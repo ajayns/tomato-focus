@@ -32,7 +32,7 @@
 
 <div class="container">
 
-  <div class="timer">
+  <div class="timer" (click)="togglePause()">
 
     <div class="timer-svg">
       <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
@@ -44,7 +44,7 @@
 
     <div class="time">{{ time | minuteSeconds }}</div>
 
-    <button (click)="togglePause()" [disabled]="!time">
+    <button [disabled]="!time">
       <i class="fa" [ngClass]="timerActive ? 'fa-pause' : 'fa-play'"></i>
     </button>
 
