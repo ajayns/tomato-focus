@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ElementSchemaRegistry } from '@angular/compiler';
 
+import { PushNotificationsService } from 'ng-push';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,7 +27,10 @@ export class AppComponent {
 
   audio = new Audio();
 
-  constructor() {
+  constructor(private _pushNotifications: PushNotificationsService) {}
+
+  ngOnInit() {
+    this._pushNotifications.requestPermission();
     this.audio.src = "../assets/beep.mp3";
     this.audio.load();
   }
