@@ -32,7 +32,18 @@ export class AppComponent {
   ngOnInit() {
     this._pushNotifications.requestPermission();
     this.audio.src = "../assets/beep.mp3";
-    this.audio.load();
+    this.audio.load();    
+  }
+
+  notify() {
+    let options = {
+      body: `Your ${this.currentStateName} has ended.`,
+      icon: '../assets/icon-256.png' 
+    }
+    this._pushNotifications.create('Timeout!', options).subscribe(res => {
+      if(res.event.type === 'click')
+        res.notification.close();
+    });
   }
 
   setTimer = (time:number, focus:boolean = false) => {
@@ -85,6 +96,7 @@ export class AppComponent {
           if (this.time - 1 == 0) {
             this.timerActive = false;
             this.audio.play();
+            this.notify();
           }
           this.time -= 1;          
           this.setTimerSvg(this.time);
