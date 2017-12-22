@@ -1,4 +1,3 @@
-
 $red: #ff2d55;
 
 $small: 480px;
@@ -19,7 +18,6 @@ $large: 1020px;
   color: $red;
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.2s ease-in;
-
 
   &:hover {
     box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
@@ -88,7 +86,7 @@ nav {
       right: 0;
       bottom: 40px;
     }
-    
+
     .current-state {
       padding: 0;
       margin-top: 50px;
@@ -104,12 +102,11 @@ nav {
       transform: rotateZ(-90deg) rotateX(180deg);
       display: block;
       z-index: -1;
-      
+
       position: fixed;
       left: 0;
       right: 0;
-      margin: 0 auto;     
-    
+      margin: 0 auto;
 
       #svg circle {
         stroke-dashoffset: 0;
@@ -130,7 +127,7 @@ nav {
     }
   }
 
-  .controls {    
+  .controls {
     ul {
       @include flex(center);
       margin-top: 1em;
@@ -144,7 +141,7 @@ nav {
           background-color: white;
           color: $red;
           font-size: small;
-          text-transform: uppercase;          
+          text-transform: uppercase;
           border-radius: 15px;
           box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
         }
@@ -155,7 +152,7 @@ nav {
 
 a {
   color: inherit;
-  text-decoration: inherit; 
+  text-decoration: inherit;
 }
 
 button {
@@ -190,9 +187,9 @@ button {
         margin-top: 2.5em;
         li {
           width: 120px;
-          button{
+          button {
             @include circle(90px);
-          }        
+          }
         }
       }
     }
@@ -233,7 +230,7 @@ button {
 
           button {
             @include circle(120px);
-            font-size: 1em;          
+            font-size: 1em;
             padding: 0 1em 0 1em;
           }
 
