@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PushNotificationsService } from 'ng-push';
 
 @Component({
@@ -9,6 +8,8 @@ import { PushNotificationsService } from 'ng-push';
 })
 
 export class AppComponent implements OnInit {
+    @ViewChild('bar') bar: ElementRef;
+
     public time: number;
     public count: number;
 
@@ -86,10 +87,15 @@ export class AppComponent implements OnInit {
     }
 
     public setTimerSvg(time: number) {
-        if (time == 0)
-            document.getElementById('bar').style.strokeDashoffset = '0';
-        else
-            document.getElementById('bar').style.strokeDashoffset = (848.23 * (1 - time / this.currentState)).toString();
+        this.bar.nativeElement.style.strokeDashoffset = this.changeBarStroke(time);
+    }
+
+    private changeBarStroke(time: number): string {
+        if (time === 0) {
+            return '0';
+        }
+
+        return (848.23 * (1 - time / this.currentState)).toString();
     }
 
     public startFocus() {
