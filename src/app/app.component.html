@@ -1,70 +1,57 @@
 <title>{{ time | minuteSeconds }} | TomatoFocus</title>
 
-
-
-
-
 <nav>
-  <h1>TomatoFocus</h1>
-
-  <div class="social-icons">
-    <ul>
-      <li>
-        <a href="http://github.com/ajayns/tomato-focus">
-          <i class="fa fa-github"></i>
-        </a>
-      </li>
-      <li>
-        <a href="http://twitter.com/ajayns08">
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://medium.com/@ajay.ns08">
-          <i class="fa fa-medium"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-
+    <h1>TomatoFocus</h1>
+    <div class="social-icons">
+        <ul>
+            <li>
+                <a href="http://github.com/ajayns/tomato-focus">
+                    <i class="fa fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/ajayns08">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://medium.com/@ajay.ns08">
+                    <i class="fa fa-medium"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
-
-  <div class="timer" (click)="togglePause()">
-
-    <div class="timer-svg">
-      <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
-        <circle id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.23" stroke-dashoffset="0"></circle>
-      </svg>
+    <div class="timer" (click)="togglePause()">
+        <div class="timer-svg">
+            <svg id="svg" width="300" height="300" viewPort="0 0 100 100">
+                <circle #bar id="bar" r="135" cx="150" cy="150" fill="transparent" stroke-dasharray="848.23"
+                        stroke-dashoffset="0"></circle>
+            </svg>
+        </div>
+        <div class="current-state">{{ currentStateName }}</div>
+        <div class="time">{{ time | minuteSeconds }}</div>
+        <button [disabled]="!time">
+            <i class="fa" [ngClass]="timerActive ? 'fa-pause' : 'fa-play'"></i>
+        </button>
+        <button (click)="setTimer(0)" class="reset-btn">
+            <i class="fa fa-times"></i>
+        </button>
     </div>
 
-    <div class="current-state">{{ currentStateName }}</div>
-
-    <div class="time">{{ time | minuteSeconds }}</div>
-
-    <button [disabled]="!time">
-      <i class="fa" [ngClass]="timerActive ? 'fa-pause' : 'fa-play'"></i>
-    </button>
-
-    <button (click)="setTimer(0)" class="reset-btn">
-      <i class="fa fa-times"></i>
-    </button>
-
-  </div>
-
-  <div class="controls">
-    <ul>
-      <li>
-        <button (click)="setTimer(this.shortBreakTime)">Short Break</button>
-      </li>
-      <li>
-        <button (click)="startFocus()">Focus</button>
-      </li>
-      <li>
-        <button (click)="setTimer(this.longBreakTime)">Long Break</button>
-      </li>
-    </ul>
-  </div>
+    <div class="controls">
+        <ul>
+            <li>
+                <button (click)="setTimer(this.shortBreakTime)">Short Break</button>
+            </li>
+            <li>
+                <button (click)="startFocus()">Focus</button>
+            </li>
+            <li>
+                <button (click)="setTimer(this.longBreakTime)">Long Break</button>
+            </li>
+        </ul>
+    </div>
 </div>
